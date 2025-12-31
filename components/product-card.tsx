@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Card className="overflow-hidden hover:scale-105 transition-transform duration-300" data-testid="product-card">
+    <Card className="overflow-hidden hover:scale-105 transition-transform duration-300 product-card">
       <CardHeader className="bg-gradient-to-br from-pastel-pink to-pastel-lavender">
         <div className="flex justify-center items-center h-32">
           <span className="text-6xl">{product.image}</span>
@@ -36,9 +36,15 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter className="flex gap-2">
         <Link href={`/product/${product.id}`} className="flex-1">
-          <Button variant="outline" className="w-full" data-testid="product-detail-link">Ver Detalles</Button>
+          <Button variant="outline" className="w-full">Ver Detalles</Button>
         </Link>
-        <Button variant="default" size="icon" onClick={handleAddToCart} data-testid="add-to-cart-button">
+        <Button 
+          id={`add-to-cart-${product.id}`}
+          variant="default" 
+          size="icon" 
+          onClick={handleAddToCart}
+          className="add-to-cart-btn"
+        >
           <ShoppingCart className="w-4 h-4" />
         </Button>
       </CardFooter>

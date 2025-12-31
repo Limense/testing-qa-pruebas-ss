@@ -36,7 +36,7 @@ export default function CartPage() {
               </Card>
             ) : (
               cart.map((item) => (
-                <Card key={item.id}>
+                <Card key={item.id} className="cart-item" id={`cart-item-${item.id}`}>
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4">
                       <div className="bg-gradient-to-br from-pastel-pink to-pastel-lavender rounded-lg w-24 h-24 flex items-center justify-center flex-shrink-0">
@@ -50,14 +50,16 @@ export default function CartPage() {
 
                       <div className="flex items-center gap-3">
                         <Button 
+                          id={`decrease-qty-${item.id}`}
                           variant="outline" 
                           size="icon"
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         >
                           <Minus className="w-4 h-4" />
                         </Button>
-                        <span className="text-xl font-semibold w-8 text-center">{item.quantity}</span>
+                        <span className="text-xl font-semibold w-8 text-center quantity-value">{item.quantity}</span>
                         <Button 
+                          id={`increase-qty-${item.id}`}
                           variant="outline" 
                           size="icon"
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -67,6 +69,7 @@ export default function CartPage() {
                       </div>
 
                       <Button 
+                        id={`remove-item-${item.id}`}
                         variant="ghost" 
                         size="icon"
                         onClick={() => removeFromCart(item.id)}
@@ -105,20 +108,20 @@ export default function CartPage() {
                 <div className="border-t-2 border-pastel-purple pt-4">
                   <div className="flex justify-between text-xl font-bold">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span id="cart-total">${total.toFixed(2)}</span>
                   </div>
                 </div>
               </CardContent>
               <CardFooter className="flex-col gap-3">
                 {cart.length > 0 && (
                   <Link href="/checkout" className="w-full">
-                    <Button className="w-full" size="lg" data-testid="proceed-to-checkout">
+                    <Button id="checkout-button" className="w-full" size="lg">
                       Proceder al Pago
                     </Button>
                   </Link>
                 )}
                 <Link href="/products" className="w-full">
-                  <Button variant="outline" className="w-full" data-testid="continue-shopping">
+                  <Button variant="outline" className="w-full">
                     Seguir Comprando
                   </Button>
                 </Link>

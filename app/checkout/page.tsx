@@ -106,6 +106,7 @@ export default function CheckoutPage() {
                   <div>
                     <label className="block text-sm font-medium mb-2">Nombre Completo</label>
                     <Input
+                      id="input-name"
                       name="name"
                       required
                       placeholder="Juan Pérez"
@@ -119,6 +120,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">Email</label>
                       <Input
+                        id="input-email"
                         name="email"
                         type="email"
                         required
@@ -132,6 +134,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">Teléfono</label>
                       <Input
+                        id="input-phone"
                         name="phone"
                         type="tel"
                         required
@@ -156,6 +159,7 @@ export default function CheckoutPage() {
                   <div>
                     <label className="block text-sm font-medium mb-2">Dirección</label>
                     <Input
+                      id="input-address"
                       name="address"
                       required
                       placeholder="Calle Principal 123, Apto 4B"
@@ -167,6 +171,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">Ciudad</label>
                       <Input
+                        id="input-city"
                         name="city"
                         required
                         placeholder="Ciudad"
@@ -177,6 +182,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">Código Postal</label>
                       <Input
+                        id="input-zip"
                         name="zipCode"
                         required
                         placeholder="12345"
@@ -200,6 +206,7 @@ export default function CheckoutPage() {
                   <div>
                     <label className="block text-sm font-medium mb-2">Número de Tarjeta</label>
                     <Input
+                      id="input-card-number"
                       name="cardNumber"
                       required
                       placeholder="1234 5678 9012 3456"
@@ -211,6 +218,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">Fecha de Vencimiento</label>
                       <Input
+                        id="input-card-expiry"
                         name="cardExpiry"
                         required
                         placeholder="MM/AA"
@@ -221,6 +229,7 @@ export default function CheckoutPage() {
                     <div>
                       <label className="block text-sm font-medium mb-2">CVC</label>
                       <Input
+                        id="input-card-cvc"
                         name="cardCvc"
                         required
                         placeholder="123"
@@ -232,7 +241,7 @@ export default function CheckoutPage() {
                 </CardContent>
               </Card>
 
-              <Button type="submit" size="lg" className="w-full" data-testid="confirm-order-button">
+              <Button id="place-order-button" type="submit" size="lg" className="w-full">
                 Confirmar Pedido - ${total.toFixed(2)}
               </Button>
             </form>

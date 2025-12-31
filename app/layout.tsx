@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
-import { AuthProvider } from "@/lib/auth-context";
-import { AuthGuard } from "@/components/auth-guard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +18,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
-        <AuthProvider>
-          <CartProvider>
-            <AuthGuard>{children}</AuthGuard>
-          </CartProvider>
-        </AuthProvider>
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

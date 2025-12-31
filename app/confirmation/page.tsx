@@ -86,7 +86,7 @@ function ConfirmationContent() {
         </div>
 
         {/* Main Message */}
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4" data-testid="confirmation-title">
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4" id="confirmation-message">
           Thank you for your order!
         </h1>
 
@@ -97,7 +97,7 @@ function ConfirmationContent() {
         {/* Order Number */}
         <div className="mb-8 p-6 bg-slate-50 rounded-lg max-w-md mx-auto">
           <p className="text-sm text-slate-500 mb-1">Order Number</p>
-          <p className="text-3xl font-bold text-slate-900" data-testid="order-number">#{orderNumber}</p>
+          <p className="text-3xl font-bold text-slate-900" id="order-number">#{orderNumber}</p>
         </div>
 
         {/* Order Summary */}
