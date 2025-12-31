@@ -6,13 +6,11 @@ import { Button } from "@/components/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/card";
 import { Input } from "@/components/input";
 import { useCart } from "@/lib/cart-context";
-import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
 import { CreditCard, MapPin, User, Mail, Phone } from "lucide-react";
 
 export default function CheckoutPage() {
   const { cart, getCartTotal, clearCart } = useCart();
-  const { user, isAuthenticated } = useAuth();
   const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
@@ -31,14 +29,10 @@ export default function CheckoutPage() {
   const total = subtotal + shipping;
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/login");
-      return;
-    }
     if (cart.length === 0) {
       router.push("/cart");
     }
-  }, [cart.length, router, isAuthenticated]);
+  }, [cart.length, router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
